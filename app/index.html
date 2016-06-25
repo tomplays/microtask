@@ -32,8 +32,22 @@
 	<!-- <3+/-)> Tom.W -->
 </head>
 <body ng-controller="MicrotaskCtrl">
+
 <div id="fb-root"></div>
-	yo
+
+<a ng-click="order_by('temps');">ordonner par temps</a>
+
+	<ul>
+<li ng-repeat="item in items">
+
+
+{{item.commission}}
+{{item.temps_individuel}}
+{{item.temps_global}}
+
+</li>
+
+</ul>
 </body>
 </html>
 

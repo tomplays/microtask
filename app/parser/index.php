@@ -54,12 +54,12 @@ try {
 
 	$cf = new CsvParser\CsvTableFormater();
 	$cf->addColumn("A", "commission"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("B", "temps individuel"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("C", "temps global"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("B", "temps_individuel"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("C", "temps_global"  , CsvParser\CsvFormaterType::RAW);
 	$cf->addColumn("D", "action"  , CsvParser\CsvFormaterType::RAW);
 	$cf->addColumn("E", "nbr personnes"  , CsvParser\CsvFormaterType::RAW);
         $cf->addColumn("F", "competences"  , CsvParser\CsvFormaterType::RAW);
-        $cf->addColumn("G", "habitué"  , CsvParser\CsvFormaterType::RAW);
+        $cf->addColumn("G", "habitue"  , CsvParser\CsvFormaterType::RAW);
 
 
 	$cr = new CsvParser\CsvReader();
