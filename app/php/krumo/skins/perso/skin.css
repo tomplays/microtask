@@ -1,0 +1,211 @@
+/**
+* Perso
+*/
+
+
+/* Root  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+.krumo-root {
+	font: normal normal 12px/18px Consolas, Monaco, Andale Mono, Courier New, monospace;
+	color: #333;
+	/*border: solid 1px black;*/
+	margin: 20px auto;
+	background-color: #FAFAFA;
+	border-radius: 10px;
+	border: 1px solid #FAFAFA;
+}
+
+.krumo-root:hover {
+	border: 1px solid #EEE;
+}
+
+
+ul.krumo-first {
+	border-radius: 10px;
+	border: solid 1px transparent;
+	padding:5px !important;
+	padding:0 !important;
+	border: solid 0 transparent;
+	overflow: hidden;
+}
+
+
+/* Line  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+a.krumo-name {
+	color:#0A8;
+	padding: 2px 4px;
+	background-color: #FFF;
+	border-radius: 5px;
+	border: solid 1px #FFF;
+}
+
+em.krumo-type {
+	color: #662d91;
+	font-style:normal;
+}
+
+strong.krumo-array-length, strong.krumo-string-length {
+	font-weight: normal;
+	color: #2f6f9f;
+}
+
+.krumo-string {
+	font-weight: normal;
+	color: #666;
+	text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+}
+
+.krumo-root ::selection {
+	background-color: hsla(24, 20%, 50%,.5);
+	color: white;
+	text-shadow: 0 -1px 1px hsl(24, 20%, 50%);
+}
+
+
+/* Hover effect - -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+div.krumo-element {
+	border: 1px solid transparent;
+}
+
+div.krumo-hover {
+	background-color: #f9f2f4;
+	border: 1px solid #f9f2f4;
+	border-radius: 5px;
+}
+
+
+/* Node hierarchy -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+ul.krumo-node {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.krumo-node ul {
+	margin-left: 20px;
+}
+/*
+* html ul.krumo-node ul {
+	margin-left: 24px;
+}
+*/
+
+li.krumo-child {
+	display:block;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	overflow:hidden;
+}
+
+div.krumo-element {
+	cursor:default;
+	display:block;
+	clear:both;
+	white-space:nowrap;
+	background-image: url(empty.gif);
+	background-image: url("data:image/gif;base64,R0lGODlhCQAJALMAAP////8AAICAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAJAAkAAAQSEAAhq6VWUpx3n+AVVl42ilkEADs=");
+	background-repeat: no-repeat;
+	background-position: 6px 5px;
+	padding: 2px 0px 3px 20px;
+}
+
+* html div.krumo-element {
+	padding-bottom: 3px;
+	line-height: 13px;
+	}
+div.krumo-expand {
+	background-image: url(collapsed.gif);
+	background-image: url("data:image/gif;base64,R0lGODlhCQAJALMAAP///wAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAJAAkAAAQTEIAna33USpwt79vncRpZgpcGRAA7");
+	cursor:pointer;
+	}
+
+div.krumo-opened {
+	background-image: url(expanded.gif);
+	background-image: url("data:image/gif;base64,R0lGODlhCQAJALMAAP///wAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAJAAkAAAQQEMhJ63w4Z6C37JUXWmQJRAA7");
+}
+
+
+/* Preview  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+div.krumo-preview {
+	overflow:auto;
+	background-color: lightyellow;
+	border: 1px solid lightyellow;
+	border-radius: 10px;
+
+	margin: 0;
+	padding: 10px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+}
+
+
+/* Footer - -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+li.krumo-footnote {
+	/*border-top: 1px dotted #CCC;*/
+	padding: 7px 10px 5px 10px;
+	margin: 0;
+	background: #EEE;
+	list-style:none;
+	cursor:default;
+}
+
+div.krumo-version {
+	float:right;
+	display: none;
+}
+
+li.krumo-footnote h6 {
+	font: normal 11px verdana;
+	margin: 0px;
+	padding: 0px;
+	color: slategray;
+	display:inline;
+}
+
+li.krumo-footnote a {
+	font: normal 10px arial;
+	color: #434343;
+	text-decoration:none;
+}
+
+li.krumo-footnote a:hover {
+	
+}
+
+li.krumo-footnote span.krumo-call {
+	font:normal 11px tahoma, verdana;
+	position: relative;
+	top: 1px;
+	color: slategray;
+	white-space: normal !important;
+	margin-right: 5px;
+}
+
+li.krumo-footnote span.krumo-call code {
+	color: #d44950;
+	font-weight:normal;
+	padding: 2px 4px;
+	background-color: #EFEFEF;
+	border-radius: 5px;
+	border: solid 1px transparent;
+}
+
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+div.krumo-title {
+	font: normal 11px tahoma, verdana;
+	position:relative;
+	top:9px;
+	cursor:default;
+	line-height:2px;
+}
+
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
