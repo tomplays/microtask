@@ -53,11 +53,13 @@ try {
 	$logger->info("Résultat (traitement complet du fichier)");
 
 	$cf = new CsvParser\CsvTableFormater();
-	$cf->addColumn("A", "id"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("C", "url"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("D", "theme"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("E", "ico"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("F", "bucket"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("A", "commission"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("B", "temps individuel"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("C", "temps global"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("D", "action"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("E", "nbr personnes"  , CsvParser\CsvFormaterType::RAW);
+        $cf->addColumn("F", "competences"  , CsvParser\CsvFormaterType::RAW);
+        $cf->addColumn("G", "habitué"  , CsvParser\CsvFormaterType::RAW);
 
 
 	$cr = new CsvParser\CsvReader();
