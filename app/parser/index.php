@@ -53,13 +53,20 @@ try {
 	$logger->info("Résultat (traitement complet du fichier)");
 
 	$cf = new CsvParser\CsvTableFormater();
-	$cf->addColumn("A", "commission"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("B", "temps_individuel"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("C", "temps_global"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("D", "action"  , CsvParser\CsvFormaterType::RAW);
-	$cf->addColumn("E", "nbr personnes"  , CsvParser\CsvFormaterType::RAW);
-        $cf->addColumn("F", "competences"  , CsvParser\CsvFormaterType::RAW);
-        $cf->addColumn("G", "habitue"  , CsvParser\CsvFormaterType::RAW);
+		$cf->addColumn("A", "id_"  , CsvParser\CsvFormaterType::RAW);
+
+	$cf->addColumn("B", "commission"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("C", "temps_individuel"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("D", "temps_global"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("E", "action"  , CsvParser\CsvFormaterType::RAW);
+	$cf->addColumn("F", "nbr personnes"  , CsvParser\CsvFormaterType::RAW);
+    $cf->addColumn("G", "competences"  , CsvParser\CsvFormaterType::RAW);
+    $cf->addColumn("H", "habitue"  , CsvParser\CsvFormaterType::RAW);
+    $cf->addColumn("I", "status"  , CsvParser\CsvFormaterType::RAW);
+    $cf->addColumn("J", "moderation"  , CsvParser\CsvFormaterType::RAW);
+    $cf->addColumn("K", "task_link"  , CsvParser\CsvFormaterType::RAW);
+    $cf->addColumn("L", "task_upper"  , CsvParser\CsvFormaterType::RAW);
+    $cf->addColumn("M", "task_value"  , CsvParser\CsvFormaterType::RAW);
 
 
 	$cr = new CsvParser\CsvReader();

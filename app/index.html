@@ -15,8 +15,7 @@
 	<meta property="og:description" content="" />
 	<meta property="og:site_name" content="" />
 	<meta property="og:url" content="" />
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
+	
 	<link rel="stylesheet" href="style/style.css">
 	<link type="text/plain" rel="author" href="humans.txt" />
 
@@ -35,19 +34,64 @@
 
 <div id="fb-root"></div>
 
-<a ng-click="order_by('temps');">ordonner par temps</a>
+
+<div ng-if="screen_ == 'random'">
+{{screen_items}}
+<a ng-click="getScreen_('random');">autre ?</a>
+<a ng-click="getScreen_('grid');">toutes les taches</a>
+</div>
+
+<div ng-if="screen_ == 'grid'">
+
+	<button><a ng-click="order_by('temps_individuel');">ordonner par temps</a></button>
+	<button><a ng-click="group_by('commission');">regrouper par commission</a></button>
+	<button><a ng-click="group_by('competences');">regrouper par competences</a></button>
+
+	<button><a ng-click="filter_('moderation', 'pending');">filter moderation /"non-modere"</a></button>
+	<button><a ng-click="filter_('moderation', 'approved');">filter moderation /"approved"</a></button>
+	<button><a ng-click="filter_('moderation', '');">filter moderation / ="" </a></button>
+	<button><a ng-click="filter_('status', 'done');">filter status / done </a></button>
+	<button><a ng-click="filter_('status', 'running');">filter status / running </a></button>
+	<button><a ng-click="reset_();">reset</a></button>
+	<a ng-click="getScreen_('random');">une tache au hasard</a>
+<table style="width:100%">
+  <tr>
+    <td>commission</td>
+    <td>temps </td>
+	<td>action</td>
+	<td>status</td>
+	<td>moderation</td>
+
+  </tr>
+
+  <tr ng-repeat="item in screen_items">
+    <td>{{item.commission}}</td>
+    <td>{{item.temps_individuel}}</td>
+	<td>{{item.action}}</td>
+	<td>{{item.status}}</td>
+	<td>{{item.moderation}}</td>
+
+  </tr>
+  
+</table>
+
+
 
 	<ul>
-<li ng-repeat="item in items">
+		<li >
+
+		
+<!--
+		<h3>task_upper_details</h3>
+		{{item.task_upper_details}}
+		!-->
+		</li>
+	</ul>
+
+</div>
 
 
-{{item.commission}}
-{{item.temps_individuel}}
-{{item.temps_global}}
 
-</li>
-
-</ul>
 </body>
 </html>
 
