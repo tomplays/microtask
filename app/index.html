@@ -14,12 +14,9 @@
 	<meta property="og:image" content="" />
 	<meta property="og:description" content="" />
 	<meta property="og:site_name" content="" />
-	<meta property="og:url" content="" />
-	
+	<meta property="og:url" content="" />	
 	<link rel="stylesheet" href="style/style.css">
 	<link type="text/plain" rel="author" href="humans.txt" />
-
-
 
 	<script src="script/components/angular/angular.min.js"></script>
 	<script src="script/components/angular-resource/angular-resource.min.js"></script>
@@ -27,18 +24,124 @@
 	<script src="script/components/angular-sanitize/angular-sanitize.min.js"></script>
 	<script src="script/components/underscore/underscore-min.js"></script>
 	<script src="script/app.js"></script>
+	<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=495962510465760";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 	<!-- <3+/-)> Tom.W -->
 </head>
 <body ng-controller="MicrotaskCtrl">
 
 <div id="fb-root"></div>
+<div class="fb-page" 
+  data-href="https://www.facebook.com/nuitdebout"
+  data-width="380" 
+  data-hide-cover="false"
+  data-show-facepile="false" 
+  data-show-posts="false"></div>
+
+<div class="steps">
+	<div ng-class="{'is-current': step.current }" ng-repeat="step in storyboard.steps">{{step.name}}
+	</div>
+</div>
+
+
+{{me}} - {{storyboard}}
+
+
+<div ng-if="screen_ == 'storyboard_0'">
+	<h1>Il suffit d'une seconde pour dire bonjour à nuit debout!</h1>
+	<a ng-click="getScreen_('storyboard_2');">Dire bonjour ! </a>
+</div>
+
+<div ng-if="screen_ == 'storyboard_1'">
+	<h1>Bonjour Nuit debout!</h1>
+	<p>3000 personnes ont deja dit bonjour dont 47 ont pris une minute pour donner leur prenom ...</p>
+	<h4>et toi ?</h4>
+	<input type="text"  name="input" ng-model="form_.name" />
+	<a ng-click="getScreen_('storyboard_3');">OK</a>
+</div>
+
+<div ng-if="screen_ == 'storyboard_2'">
+	
+DEVENIR FAN SUR FACEBOOK = 1MIN..
+
+	<a ng-click="getScreen_('storyboard_1');">OK</a>
+</div>
+
+
+<div ng-if="screen_ == 'storyboard_3'">
+	<h1> {{me.name_}}  tu sembles bien volontaire pour aider !</h1>
+	<p>Il y a actuellement 45 taches listées dont la plus simple prend 2 minutes à peine ! ..</p>
+	<h4>
+		<a ng-click="getScreen_('random');">Tache au hasard  </a>
+			<a ng-click="getScreen_('grid');"> En choisir une dans la liste  </a>
+
+	</h4>
+</div>
+
+<a ng-click="getScreen_('insert');">inserer nouvelle</a> || 
+	<a ng-click="getScreen_('stats');">stats</a> || 
+		<a ng-click="getScreen_('random');">une tache au hasard</a> || <a ng-click="getScreen_('grid');">liste</a>
+
+
+<div ng-if="screen_ == 'stats'">
+<h3>Statistiques des taches</h3>
+tasks_infos:
+{{tasks_infos}}
+circular : 
+<button><a ng-click="order_by('tasks_value');">ordonner par VALEUR total des taches</a></button>
+<button><a ng-click="order_by('tasks_count');">ordonner par NOMBRE total de taches </a></button>
+<!-- {width: group.tasks_count_ratio} !-->
+<div class="graph" style="margin:3%; float:left; ">
+	<div ng-repeat="group in circular.grouped" ng-style="" style="border:1px solid #dadada; float:left; width:90%; display:block; margin-bottom:2%; padding:1%;">
+		<span style="float:left;">{{group.commission}}</span>
+		<span style="float:right; ">{{group.tasks_count_ratio}}</span>
+	</div>
+</div>
+
+
+<div ng-repeat="group in circular.grouped" style="margin-top:3%; border-top:1px solid #dadada; padding-top:2%;">
+
+<h3>Commission {{group.commission}} || {{group.tasks_count_ratio}} nombre de taches <em>({{group.tasks_value_ratio}} en valeur)</em></h3>
+<pre> count:{{group.tasks_count}} || tasks_value :{{group.tasks_value}} || best task_value :{{group.best}} || ratio tasks value : {{group.tasks_value_ratio}} || </pre>
+		<table style="width:100%">
+		  <tr>
+		     		    <td>task value</td>
+			<td>action</td>
+
+		    <td>temps </td>
+			<td>status</td>
+			<td>moderation</td>
+		  
+
+		  </tr>
+
+		  <tr ng-repeat="item in group">
+		     			<td>{{item.task_value}}</td>
+			<td>{{item.action}}</td>
+
+		    <td>{{item.temps_individuel}}</td>
+			<td>{{item.status}}</td>
+			<td>{{item.moderation}}</td>
+
+		    
+
+		  </tr>
+		  
+		</table>
+</div>
+<a ng-click="getScreen_('random');">hasard</a>
+<a ng-click="getScreen_('grid');">toutes les taches</a>
+</div>
 
 
 <div ng-if="screen_ == 'random'">
-{{screen_items}}
-<a ng-click="getScreen_('random');">autre ?</a>
-<a ng-click="getScreen_('grid');">toutes les taches</a>
+{{screen_items[0].commission}} - {{screen_items[0].action}}
 </div>
 
 <div ng-if="screen_ == 'grid'">
@@ -53,7 +156,7 @@
 	<button><a ng-click="filter_('status', 'done');">filter status / done </a></button>
 	<button><a ng-click="filter_('status', 'running');">filter status / running </a></button>
 	<button><a ng-click="reset_();">reset</a></button>
-	<a ng-click="getScreen_('random');">une tache au hasard</a>
+
 <table style="width:100%">
   <tr>
     <td>commission</td>
@@ -75,23 +178,19 @@
   
 </table>
 
-
-
 	<ul>
 		<li >
-
-		
-<!--
-		<h3>task_upper_details</h3>
-		{{item.task_upper_details}}
+		<!--
+			<h3>task_upper_details</h3>
+			{{item.task_upper_details}}
 		!-->
 		</li>
 	</ul>
 
 </div>
-
-
-
+<div ng-if="screen_ == 'insert'">
+<iframe width="100%" height="600px" src="https://docs.google.com/spreadsheets/d/16-CJ_b6nkpj2BL_zsV0lezuWEF1JetD8X0IqN0AwFA8/edit#gid=0"></iframe>
+</div>
 </body>
 </html>
 
